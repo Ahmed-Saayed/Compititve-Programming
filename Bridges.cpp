@@ -39,11 +39,7 @@ while(m--){
     adj[v].push_back(u);
 }
 
-bool vis[n+1]{};
-for(int i=1;i<=n;i++)
-    if(!vis[i])bridges(i,0);
-
+bridges(1,0);
 for(auto[u,v]:Bridge_Edges)
     cout<<u<<' '<<v<<'\n';
-
 }
