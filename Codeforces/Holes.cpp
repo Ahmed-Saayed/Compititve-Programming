@@ -11,11 +11,16 @@ ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 const int N=1e5+5;
 int n,x[N],nxt[N],cost[N],last[N],sq;
 void up(int i){
-    if(i/sq!=(i+x[i])/sq||i+x[i]>=n)
-        nxt[i]=min(n,i+x[i]),cost[i]=1,last[i]=i;
-
-    else
-        nxt[i]=nxt[i+x[i]],cost[i]=1+cost[i+x[i]],last[i]=last[i+x[i]];
+    if(i/sq!=(i+x[i])/sq||i+x[i]>=n){
+        nxt[i]=min(n,i+x[i]),
+            cost[i]=1,
+            last[i]=i;
+    }
+    else{
+        nxt[i]=nxt[i+x[i]],
+            cost[i]=1+cost[i+x[i]],
+            last[i]=last[i+x[i]];
+    }
 }
 
 int main()
