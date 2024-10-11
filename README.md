@@ -2,8 +2,5 @@
 
 [Codeforces Profile](https://codeforces.com/profile/Ahmed_Sayed-)
 
-[Atcoder Profile](https://atcoder.jp/users/AhmedSayed)
-
-[codechef Profile](https://www.codechef.com/users/ahmed_sayed1)
-
 [vjudge.net Profile](https://vjudge.net/user/Ahmed_SA)
+
