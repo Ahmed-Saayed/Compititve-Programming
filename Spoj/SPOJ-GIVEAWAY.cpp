@@ -8,11 +8,11 @@ using namespace std;
 void Ahmed_Sayed(){
 ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 }
-const int N=5e5+5,sq=800;
+const int N=5e5+5,sq=720;
 vector<vector<int>>blk;
 int x[N];
-ll get(int l,int r,int val){
-    ll ret=0;
+int get(int l,int r,int val){
+    int ret=0;
 
     while(l<=r&&l%sq)ret+=x[l++]>=val;
         while(l+sq-1<=r)
