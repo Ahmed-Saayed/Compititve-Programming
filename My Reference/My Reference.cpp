@@ -102,7 +102,7 @@ pair<ll,ll>Kadanes_Algorithm(vector<ll>arr) {
     return {mx,mn};
 }
 //*******************************
- (Kadane's Algorithm) 
+ (Kadanes_Algorithm) 
 ll kadmx(ll a[],ll l, ll r)
 {
     ll ans = INT_MIN, mx = 0,
