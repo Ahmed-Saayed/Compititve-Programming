@@ -93,6 +93,7 @@ return s;
 }
 
 string::npos
+
 //=========================================================================
 (New Kadanes_Algorithm)
 pair<ll,ll>Kadanes_Algorithm(vector<ll>arr) {
@@ -108,60 +109,6 @@ pair<ll,ll>Kadanes_Algorithm(vector<ll>arr) {
     }
     return {mx,mn};
 }
-
-//=========================================================================
- (Kadanes_Algorithm) 
-ll kadmx(ll a[],ll l, ll r)
-{
-    ll ans = INT_MIN, mx = 0,
-        start = 0, end = 0, s = 0;
- 
-    for (int i=l;i<=r;i++) {
-        mx+=a[i];
-        if(ans<mx)ans=mx,start=s,end=i;
-        if(mx<0)mx=0,s=i+1;   
-    }
-return ans;
-}
-
-//=========================================================================
-ll Kadmn(ll arr[],ll l,ll r)
-{
-    ll mn=LLONG_MAX,ans=LLONG_MAX;
-    for (int i=l;i<=r;i++){
-        if (mn>0)mn=arr[i];
-        else mn+=arr[i];
-        ans=min(ans,mn);
-    }
-    return ans;
-}
-
-//=========================================================================
-pair<ll,ll>kadmx(ll a[],ll l, ll r)
-{
-    ll ans = INT_MIN, mx = 0,
-        start = 0, end = 0, s = 0;
-
-    for (int i=l;i<=r;i++) {
-        mx+=a[i];
-        if(ans<=mx){
-            if(i-s>end-start||mx>ans)start=s,end=i;
-            ans=mx;
-        }
-        if(mx<0)mx=0,s=i+1;
-    }
-return {start+1,end+1};
-}
-
-//=========================================================================
-(Subarray Sums Divisibleby K)
-ll  SSumsDK(ll n,ll k,ll x[],map<ll,ll>&mp){
-    mp[0]++;
-    ll sm=0,ans=0;
-    for(int i=0;i<n;i++)sm+=x[i],ans+=mp[(sm%k+k)%k],mp[(sm%k+k)%k]++;
-    return ans;
-}
-
 
 //=========================================================================
 bool overflow(ll a , ll b){
