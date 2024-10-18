@@ -1,14 +1,13 @@
+(Mother Library)
 #include <bits/stdc++.h>
-#define ll long long
-#define tt int tc;cin>>tc;while(tc--){
-#define all(v) (v).begin(),(v).end()
-#define nn cout<<"\n"
-using namespace std;
+
+//=========================================================================
+(Fast Code)
 ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 
-//***************************
-ll mod=1e9+7;
-ll fp(ll x, ll k){
+//=========================================================================
+(Fast Power)
+ll fp(ll x, ll k,ll mod){
 	ll ret = 1;
 	x%=mod;
 	while (k){
@@ -18,13 +17,15 @@ ll fp(ll x, ll k){
 	return ret%mod;
 }
 
+//=========================================================================
+(Npr Ncr Factorial Inv)
 const ll N=2e5+5;
 ll fact[N+1],inv[N+1];
 void pre(){
     fact[0]=inv[0]=1;
     for(ll i=1;i<=N;i++){
         fact[i] = fact[i-1] * i % mod;
-        inv[i]=fp(fact[i],mod-2);
+        inv[i]=fp(fact[i],mod-2,mod);
     }
 }
 
@@ -39,7 +40,9 @@ ll npr(ll n,ll r){
       if(r>n)return 0;
       return fact[n]*inv[n-r]%mod;
 }
-//***************************
+
+//=========================================================================
+(String mod)
 int mod(string s, int a){
     int res = 0;
     for (int i = 0; i < s.size(); i++)
@@ -47,37 +50,39 @@ int mod(string s, int a){
  
     return res;
 }
-//***************************
 
-ll dis=x[c][d]-x[a-1][d]-x[c][b-1]+x[a-1][b-1];
-//***************************
-(sum(x[i])^2-sum(x[i]^2)/2
-//***************************
-sum(x[i]*fp(2,n-1)),sm%=mod;
-//***************************
-
-int getbit(int n,int j){
-    return((n>>j)&1);
+//=========================================================================
+(Some math law)
+ll sum(ll n){
+return n*(n+1)/2;
 }
-//*******************************
-(summation all even number from L to R)
-(y+2)/2)*(y/2)-(x+2)/2*(x/2)  
-//*******************************
+//
+ll dis=x[c][d]-x[a-1][d]-x[c][b-1]+x[a-1][b-1];
+//
+(sum(x[i])^2-sum(x[i]^2)/2
+//	
 (summation all odd number from L to R)
-(y+1)/2*((y+1)/2)-(x+1)/2*((x+1)/2)    
-//*******************************
-sum(n/x)*x   (summation number from 1 to n that is divisable by x)
-//*******************************
+(y+1)/2*((y+1)/2)-(x+1)/2*((x+1)/2) 
+//
+(summation all even number from L to R)
+(y+2)/2)*(y/2)-(x+2)/2*(x/2)
+//
+(summation number from 1 to n that is divisable by x)
+sum(n/x)*x
+//
+original price befor disc
+(current price/(1-(disc%)))
+//	
 rotate matrix 90 degree  x[j][n-1-i];
 rotate matrix 180 degree x[n-1-i][n-1-j];
 rotate matrix 270 degree x[n-1-j][i];
-//****************************
-original price befor disc (current price/(1-(disc%)))
-//*******************************
-__builtin_popcount((a^b));
-//*******************************
-string::npos
-//*******************************
+//
+sort(v.begin(), v.end());
+    for(int i=0;i<n;i++){
+        ans=fix(ans-ncr(n-i-1,k-1)*v[i]);
+        ans=fix(ans+ncr(i,k-1)*v[i]);
+    }
+//=========================================================================
 string rep(string s,string a,string b){
 auto it=s.find(a);
 while(it!=string::npos&&s.size()<=10){
@@ -86,7 +91,10 @@ while(it!=string::npos&&s.size()<=10){
 }
 return s;
 }
-//*******************************
+
+string::npos
+
+//=========================================================================
 (New Kadanes_Algorithm)
 pair<ll,ll>Kadanes_Algorithm(vector<ll>arr) {
     ll mx = arr[0],mn=arr[0];
@@ -101,66 +109,16 @@ pair<ll,ll>Kadanes_Algorithm(vector<ll>arr) {
     }
     return {mx,mn};
 }
-//*******************************
- (Kadanes_Algorithm) 
-ll kadmx(ll a[],ll l, ll r)
-{
-    ll ans = INT_MIN, mx = 0,
-        start = 0, end = 0, s = 0;
- 
-    for (int i=l;i<=r;i++) {
-        mx+=a[i];
-        if(ans<mx)ans=mx,start=s,end=i;
-        if(mx<0)mx=0,s=i+1;   
-    }
-return ans;
-}
-//*******************************
-ll Kadmn(ll arr[],ll l,ll r)
-{
-    ll mn=LLONG_MAX,ans=LLONG_MAX;
-    for (int i=l;i<=r;i++){
-        if (mn>0)mn=arr[i];
-        else mn+=arr[i];
-        ans=min(ans,mn);
-    }
-    return ans;
-}
-//********************************
-pair<ll,ll>kadmx(ll a[],ll l, ll r)
-{
-    ll ans = INT_MIN, mx = 0,
-        start = 0, end = 0, s = 0;
 
-    for (int i=l;i<=r;i++) {
-        mx+=a[i];
-        if(ans<=mx){
-            if(i-s>end-start||mx>ans)start=s,end=i;
-            ans=mx;
-        }
-        if(mx<0)mx=0,s=i+1;
-    }
-return {start+1,end+1};
-}
-
-//********************************
-(Subarray Sums Divisibleby K)
-ll  SSumsDK(ll n,ll k,ll x[],map<ll,ll>&mp){
-    mp[0]++;
-    ll sm=0,ans=0;
-    for(int i=0;i<n;i++)sm+=x[i],ans+=mp[(sm%k+k)%k],mp[(sm%k+k)%k]++;
-    return ans;
-}
-
-
-//*******************************
+//=========================================================================
 bool overflow(ll a , ll b){
     ll c = a*b;
     if(c%a!=0) return 1;
     if(c / a != b) return 1;
     return 0;
 }
-//*******************************
+
+//=========================================================================
 (ordered multiset)           		complex 4*log
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
@@ -171,14 +129,16 @@ ordered_multiset <ll> os;
 
 os.order_of_key (k)  // Number of items strictly smaller than k
 *os.find_by_order(k) // K-th element in a set (counting from zero)
-//*******************************
+
+//=========================================================================
 (ordered set)
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
 using namespace __gnu_pbds;
 #define ordered_set tree<ll, null_type,less<ll>, rb_tree_tag,tree_order_statistics_node_update>
 ordered_set os;
-//*******************************
+
+//=========================================================================
 (SingleHashing)
 ll fp(ll x, ll k,ll mod){
 	ll ret = 1;
@@ -281,7 +241,8 @@ struct SingleHashing{
         return ret;
     }
 };
-//*******************************
+
+//=========================================================================
 (DoubleHashing)
 ll fp(ll x, ll k,ll mod){
 	ll ret = 1;
@@ -402,7 +363,8 @@ struct DoubleHashing{
         return ret;
     }
 };
-//*******************************
+
+//=========================================================================
 (KMP)
 struct KMP{
     vector<int>PreFun(string pat){
@@ -453,7 +415,8 @@ struct KMP{
         return ret;
     }
 };
-//*******************************************
+
+//=========================================================================
 (Trie)
 struct Trie{
 
@@ -484,7 +447,8 @@ struct Trie{
         auto*cur=this;
     }
 };
-//*******************************************
+
+//=========================================================================
 (MOs)
 const int N=2e5+5;
 int sqr;
@@ -548,7 +512,8 @@ for(int i=0;i<q;i++){
  
     qu[i]=query(--l,--r,i);
 }
-//*******************************************
+
+//=========================================================================
 (MOs,Tree)
 const int sqr=500,N=2e5+5;
 vector<int>adj[N],v;
@@ -631,7 +596,8 @@ for(int i=0;i<q;i++){
     else
         qu[i]=query(in[l],in[r],i,lca);
 }
-//*******************************************
+
+//=========================================================================
 struct DSU{
     vector<ll>par,sz;
     ll sm,edges;
@@ -657,7 +623,8 @@ struct DSU{
         return 1;
 }
 };
-//*******************************************
+
+//=========================================================================
 (SCC)
 void SCC(ll node){
     dn[node] = low[node] = id++;
@@ -685,7 +652,9 @@ void SCC(ll node){
         }
     }
 }
-//*******************************************
+
+//=========================================================================
+(Bridges)
 void bridges(ll node,ll par){
     vis[node]=1;
     low[node]=dn[node]=id++;
@@ -701,7 +670,9 @@ void bridges(ll node,ll par){
         else low[node]=min(low[node],dn[i]);
     }
 }
-//*******************************************
+
+//=========================================================================
+(Articulation_Points)
 void articulation_points(ll node,ll par){
     vis[node]=1;
     low[node]=dn[node]=id++;
@@ -721,7 +692,69 @@ void articulation_points(ll node,ll par){
 
     if(par==-1&&c>1)arc.insert(node);
 }
-//*******************************************
+
+//=========================================================================
+(LCA)
+struct st{
+    ll par;
+    //,mx,mn,sm;
+};
+
+struct Lowest_CA{
+    int lg;
+    vector<vector<st>>anc;
+    vector<int>lvl;
+
+    Lowest_CA(int n){
+        lg=27,
+        anc=vector<vector<st>>(n+1,vector<st>(lg)),
+        lvl=vector<int>(n+1);
+    }
+
+    void bul(int node=1,int par=1){
+        lvl[node]=lvl[par]+1;
+
+        anc[node][0].par=par;
+        for(int i=1;i<lg;i++){
+            int p=anc[node][i-1].par;
+            anc[node][i].par=anc[p][i-1].par;
+            //anc[node][i].sm=anc[node][i-1].sm+anc[p][i-1].sm;
+        }
+
+        for(auto i:adj[node]){
+            if(i!=par)
+                bul(i,node);
+        }
+    }
+
+    int kth(int node,int k){
+        for(int i=lg-1;i>=0;i--)
+            //ans=max(ans,anc[node][i].mx),
+            //sm=max(ans,anc[node][i].sm),
+            if(k>>i&1)node=anc[node][i].par;
+
+        return node;
+    }
+
+    int LCA(int u,int v){
+        if(lvl[u]<lvl[v])swap(u,v);
+        u=kth(u,lvl[u]-lvl[v]);
+
+        if(u==v)return u;
+        for(int i=lg-1;i>=0;i--){
+            if(anc[u][i].par!=anc[v][i].par)
+                u=anc[u][i].par,v=anc[v][i].par;
+        }
+
+        return anc[u][0].par;
+    }
+
+    int distance(int u,int v){
+        return lvl[u]+lvl[v]-lvl[LCA(u,v)]*2;
+    }
+};
+
+//=========================================================================
 vector<int> genAllSubmask(int mask) {
 	vector<int> v;
 	for (int subMask = mask;; subMask = (subMask - 1) & mask) {
@@ -731,7 +764,8 @@ vector<int> genAllSubmask(int mask) {
 	}
 	return v;
 }
-//*****************************************
+
+
 ll setBit(ll num, int idx, bool val) {
 	return val ? (num | (1LL << idx)) : (num & ~(1LL << idx));
 }
@@ -739,25 +773,14 @@ ll setBit(ll num, int idx, bool val) {
 ll flipBit(ll num, int idx) {
 	return (num ^ (1LL << idx));
 }
-//**************************************
-(Cheeck it!!!)
-ll n,pre=0,carry=0;
-string s,ans;cin>>n>>s;
-for(auto i:s)pre+=i-'0';
- 
-for(int i=n-1;i>=0;i--){
-    ans+=(pre+carry)%10+'0';
-    carry=(pre+carry)/10;
-    pre-=s[i]-'0';
+
+int getbit(int n,int j){
+	return((n>>j)&1);
 }
- 
-string o=to_string(carry);
-reverse(all(o)),ans+=o;
-while(ans.back()=='0')ans.pop_back();
- 
-reverse(all(ans));
-cout<<ans;
-//**************************************
+
+__builtin_popcount(n);
+
+//=========================================================================
 (LIS and number of LISes)
 ll n,mod=1e9+7;cin>>n;
 vector<ll>x(n),dp(n,1),dp2(n,1);
@@ -780,7 +803,8 @@ for(int i=0;i<n;i++)
     if(dp[i]==mx)ans=(ans+dp2[i])%mod;
  
 cout<<mx<<' '<<ans<<'\n';
-//**************************************
+
+//=========================================================================
 (Sum of 2 strings)
 // C++ program to find sum of two large numbers.
 #include<bits/stdc++.h>
@@ -833,7 +857,8 @@ string findSum(string str1, string str2)
 
 	return str;
 }
-//****************************************
+
+//=========================================================================
 (multi 2 strings)
 string multiply(string num1, string num2)
 {
@@ -908,7 +933,8 @@ string multiply(string num1, string num2)
 
     return s;
 }
-//**************************************
+	
+//=========================================================================
 (subtract 2 strings)
 bool isSmaller(string str1, string str2)
 {
@@ -991,7 +1017,8 @@ string findDiff(string str1, string str2)
 
     return str;
 }
-*********************************************************
+
+//=========================================================================
 (divide string , num ){
 string divideLargeNumber(string number, int divisor) {
    // to store the result
@@ -1014,69 +1041,3 @@ string divideLargeNumber(string number, int divisor) {
    return result;
 }
 }
-//*********************************************************
-sort(v.begin(), v.end());
-    for(int i=0;i<n;i++){
-        ans=fix(ans-ncr(n-i-1,k-1)*v[i]);
-        ans=fix(ans+ncr(i,k-1)*v[i]);
-    }
-//**********************************************************
-struct st{
-    ll par;
-    //,mx,mn,sm;
-};
-
-struct Lowest_CA{
-    int lg;
-    vector<vector<st>>anc;
-    vector<int>lvl;
-
-    Lowest_CA(int n){
-        lg=27,
-        anc=vector<vector<st>>(n+1,vector<st>(lg)),
-        lvl=vector<int>(n+1);
-    }
-
-    void bul(int node=1,int par=1){
-        lvl[node]=lvl[par]+1;
-
-        anc[node][0].par=par;
-        for(int i=1;i<lg;i++){
-            int p=anc[node][i-1].par;
-            anc[node][i].par=anc[p][i-1].par;
-            //anc[node][i].sm=anc[node][i-1].sm+anc[p][i-1].sm;
-        }
-
-        for(auto i:adj[node]){
-            if(i!=par)
-                bul(i,node);
-        }
-    }
-
-    int kth(int node,int k){
-        for(int i=lg-1;i>=0;i--)
-            //ans=max(ans,anc[node][i].mx),
-            //sm=max(ans,anc[node][i].sm),
-            if(k>>i&1)node=anc[node][i].par;
-
-        return node;
-    }
-
-    int LCA(int u,int v){
-        if(lvl[u]<lvl[v])swap(u,v);
-        u=kth(u,lvl[u]-lvl[v]);
-
-        if(u==v)return u;
-        for(int i=lg-1;i>=0;i--){
-            if(anc[u][i].par!=anc[v][i].par)
-                u=anc[u][i].par,v=anc[v][i].par;
-        }
-
-        return anc[u][0].par;
-    }
-
-    int distance(int u,int v){
-        return lvl[u]+lvl[v]-lvl[LCA(u,v)]*2;
-    }
-};
-//**********************************************************
