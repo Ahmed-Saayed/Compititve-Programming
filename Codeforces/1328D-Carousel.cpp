@@ -45,9 +45,7 @@ Ahmed_Sayed();
 tt
 cin>>n;
 for(int i=0;i<n;i++)
-    for(int j=0;j<=3;j++)
-        for(int k=0;k<=3;k++)
-            for(int l=0;l<=3;l++)dp[i][j][k][l]=-1;
+    memset(dp[i],-1,sizeof dp[i]);
 
 for(int i=0;i<n;i++)cin>>x[i];
 string ans=bul();
