@@ -1041,3 +1041,63 @@ string divideLargeNumber(string number, int divisor) {
    return result;
 }
 }
+//=========================================================================
+(calc max path for each vertex)
+const int N=2e5+5;
+ll o,mx,MxPath[N];
+vector<int>adj[N];
+
+void dfs(int node,int par=0,int d=0){
+    if(d>mx)mx=d,o=node;
+
+    MxPath[node]=max(MxPath[node],(ll)d);
+    for(auto i:adj[node])
+        if(i!=par)dfs(i,node,d+1);
+}
+
+(in main!!)
+dfs(1),
+mx=0,
+dfs(o),
+dfs(o);
+
+}
+//=========================================================================
+ll XorRange(ll l,ll r){
+    l--;
+    ll mod1 = l%4,mod2 = r%4;
+    
+    if(!mod1)l = l;
+    else if(mod1 == 1)l = 1;
+    else if(mod1 == 2)l = l+1;
+    else l=0;
+
+    if(!mod2)r = r;
+    else if(mod2 == 1)r = 1;
+    else if(mod2 == 2)r = r+1;
+    else r = 0;
+
+    return l ^ r;
+}
+//=========================================================================
+// Segment_Tree
+(Max Subseq Brackets)
+st merge(st x,st y){
+    st ret;
+
+    int mn=min(x.l,y.r);
+    ret.ans=x.ans+y.ans+mn;
+    ret.l=x.l+y.l-mn;
+    ret.r=x.r+y.r-mn;
+
+    return ret;
+}
+
+(Max Subsarray)
+void merge(int node){
+    seg[node].ans=max({seg[node*2].ans,seg[node*2+1].ans,seg[node*2].suf+seg[node*2+1].pre});
+    seg[node].pre=max(seg[node*2].pre,seg[node*2].sm+seg[node*2+1].pre);
+    seg[node].suf=max(seg[node*2+1].suf,seg[node*2+1].sm+seg[node*2].suf);
+    seg[node].sm=seg[node*2].sm+seg[node*2+1].sm;
+}
+//=========================================================================
