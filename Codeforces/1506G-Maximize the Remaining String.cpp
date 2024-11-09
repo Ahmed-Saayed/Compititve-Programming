@@ -21,7 +21,6 @@ for(int i=0;i<s.size();i++){
     st.insert(s[i]);
 }
 
-string ans;
 int cur=-1;
 while(st.size())
     for(int i=25;~i;i--)
