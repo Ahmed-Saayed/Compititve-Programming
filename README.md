@@ -1,8 +1,10 @@
 <h1>Problem Solving and Block Of Codes</h1>
 
-[Codeforces Profile](https://codeforces.com/profile/Ahmed_Sayed-)
+My Profiles
 
-[LeetCode Profile](https://leetcode.com/u/AhmedSayed1/)
+[Codeforces](https://codeforces.com/profile/Ahmed_Sayed-)
 
-[vjudge.net Profile](https://vjudge.net/user/Ahmed_SA)
+[LeetCode](https://leetcode.com/u/AhmedSayed1/)
+
+[vjudge.net](https://vjudge.net/user/Ahmed_SA)
 
