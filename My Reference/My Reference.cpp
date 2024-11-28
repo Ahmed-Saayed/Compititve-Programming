@@ -56,11 +56,15 @@ int mod(string s, int a){
 ll sum(ll n){
 return n*(n+1)/2;
 }
-//
+// summation fron 1 to n
+
 ll dis=x[c][d]-x[a-1][d]-x[c][b-1]+x[a-1][b-1];
-//
-(sum(x[i])^2-sum(x[i]^2)/2
-//	
+// sub 2D array summation 
+
+(sum(all(arr))^2
+-sum(x[i]^2)/2 1<=i<=n
+//summation of multiply each pair in array
+	
 (summation all odd number from L to R)
 (y+1)/2*((y+1)/2)-(x+1)/2*((x+1)/2) 
 //
@@ -1081,7 +1085,7 @@ ll XorRange(ll l,ll r){
 }
 //=========================================================================
 // Segment_Tree
-(Max Subseq Brackets)
+(Max Subseq Brackets with segment tree)
 st merge(st x,st y){
     st ret;
 
@@ -1093,7 +1097,7 @@ st merge(st x,st y){
     return ret;
 }
 
-(Max Subsarray)
+(Max Subsarray with segment tree)
 void merge(int node){
     seg[node].ans=max({seg[node*2].ans,seg[node*2+1].ans,seg[node*2].suf+seg[node*2+1].pre});
     seg[node].pre=max(seg[node*2].pre,seg[node*2].sm+seg[node*2+1].pre);
