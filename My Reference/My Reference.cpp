@@ -701,63 +701,60 @@ void articulation_points(ll node,ll par){
 (LCA)
 struct st{
     ll par;
-    //,mx,mn,sm;
 };
-
+ 
 struct Lowest_CA{
     int lg;
     vector<vector<st>>anc;
     vector<int>lvl;
-
+ 
     Lowest_CA(int n){
         lg=27,
         anc=vector<vector<st>>(n+1,vector<st>(lg)),
         lvl=vector<int>(n+1);
+ 
+        bul();
     }
-
+ 
     void bul(int node=1,int par=1){
         lvl[node]=lvl[par]+1;
-
+ 
         anc[node][0].par=par;
         for(int i=1;i<lg;i++){
             int p=anc[node][i-1].par;
             anc[node][i].par=anc[p][i-1].par;
-            //anc[node][i].sm=anc[node][i-1].sm+anc[p][i-1].sm;
         }
-
+ 
         for(auto i:adj[node]){
             if(i!=par)
                 bul(i,node);
         }
     }
-
+ 
     int kth(int node,int k){
         for(int i=lg-1;i>=0;i--)
-            //ans=max(ans,anc[node][i].mx),
-            //sm=max(ans,anc[node][i].sm),
             if(k>>i&1)node=anc[node][i].par;
-
+ 
         return node;
     }
-
+ 
     int LCA(int u,int v){
         if(lvl[u]<lvl[v])swap(u,v);
         u=kth(u,lvl[u]-lvl[v]);
-
+ 
         if(u==v)return u;
         for(int i=lg-1;i>=0;i--){
             if(anc[u][i].par!=anc[v][i].par)
                 u=anc[u][i].par,v=anc[v][i].par;
         }
-
+ 
         return anc[u][0].par;
     }
-
+ 
     int distance(int u,int v){
         return lvl[u]+lvl[v]-lvl[LCA(u,v)]*2;
     }
 };
-
 //=========================================================================
 vector<int> genAllSubmask(int mask) {
 	vector<int> v;
