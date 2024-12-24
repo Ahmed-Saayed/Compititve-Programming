@@ -4,35 +4,30 @@
 #define all(v) (v).begin(),(v).end()
 #define nn cout<<"\n"
 using namespace std;
-								//118D - Caesar's Legions
+
 void Ahmed_Sayed(){
 ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 }
+ll n,m,k1,k2,dp[101][101][11][11],mod=1e8;
+ll rec(ll prev=0,ll prev2=0,ll i=0,ll j=0,ll idx=0){	//118D-Caesar's Legions 
+    if(i==n&&j==m)return 1;
 
-ll n,l,k,x[501],y[501],dp[501][501];
-ll rec(ll i=0,ll o=k){
-    if(i==n)return 0;
-
-    ll &ret=dp[i][o];
+    ll&ret=dp[i][j][prev][prev2];
     if(~ret)return ret;
 
-    ret=1e18;
-
-    for(int j=0;j<=o&&i+j+1<=n;j++){
-        ret=min(ret,(x[i+j+1]-x[i])*y[i]+rec(i+j+1,o-j));
-    }
-
-    return ret;
+    ret=0;
+    if(i<n&&prev+1<=k1)
+	ret+=rec(prev+1,0,i+1,j,idx+1)%mod;
+    if(j<m&&prev2+1<=k2)
+	ret+=rec(0,prev2+1,i,j+1,idx+1)%mod;
+    
+    return ret%mod;
 }
 
 int main()
 {
 Ahmed_Sayed();
-cin>>n>>l>>k;
-for(int i=0;i<n;i++)cin>>x[i];
-for(int i=0;i<n;i++)cin>>y[i];
-x[n]=l;
-
+cin>>n>>m>>k1>>k2;
 memset(dp,-1,sizeof dp);
 
 cout<<rec();
