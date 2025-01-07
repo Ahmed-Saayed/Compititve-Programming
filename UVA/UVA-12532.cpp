@@ -9,7 +9,7 @@ void Ahmed_Sayed(){
 ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 }
 
-const int N=1e5+5;
+const int N=1e5 + 5;
 ll n,x[N],seg[N*4],seg2[N*4],lef,righ,id,val,zero,mins;
 void bul(int node=1,int l=1,int r=n){
     if(l==r){
