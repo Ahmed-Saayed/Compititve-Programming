@@ -1054,22 +1054,22 @@ string divideLargeNumber(string number, int divisor) {
 //=========================================================================
 (calc max path for each vertex)
 const int N=2e5+5;
-ll o,mx,MxPath[N];
-vector<int>adj[N];
+vector<int>adj[N],MxPath;
+int mx,o;
+void dfs(int node,int par,int d){
+    MxPath[node]=max(MxPath[node],d);
 
-void dfs(int node,int par=0,int d=0){
-    if(d>mx)mx=d,o=node;
+    if(d>mx)
+        mx=d,o=node;
 
-    MxPath[node]=max(MxPath[node],(ll)d);
     for(auto i:adj[node])
         if(i!=par)dfs(i,node,d+1);
 }
 
-(in main!!)
-dfs(1),
-mx=0,
-dfs(o),
-dfs(o);
+dfs(1,0,0);
+mx=0;
+dfs(o,0,0);
+dfs(o,0,0);
 
 }
 //=========================================================================
@@ -1111,3 +1111,25 @@ void merge(int node){
     seg[node].sm=seg[node*2].sm+seg[node*2+1].sm;
 }
 //=========================================================================
+========
+=******=
+=*####*=
+=*#++#*=	(traverse this shape from out to in this shape)
+=*####*=
+=******=
+========
+
+for(int k=0;k<min(n/2,m/2);k++){
+    for(int j=k;j<m-k;j++)
+        //
+
+    for(int i=k+1;i<n-k;i++)
+        //
+
+    for(int j=m-2-k;j>=k;j--)
+        //
+
+    for(int i=n-2-k;i>k;i--)
+        //
+}
+
