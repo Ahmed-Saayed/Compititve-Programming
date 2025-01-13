@@ -6,7 +6,7 @@
 <h2>Knight At LeetCode</h2>
 
 
-My Profiles
+<h3>My Profiles</h3>
 
 [Codeforces](https://codeforces.com/profile/Ahmed_Sayed-)
 
