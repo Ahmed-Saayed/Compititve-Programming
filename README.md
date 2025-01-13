@@ -8,4 +8,4 @@
 
 <h3>My Profiles</h3>
 
-[Codeforces](https://codeforces.com/profile/Ahmed_Sayed-) <h3>----</h3>  [LeetCode](https://leetcode.com/u/AhmedSayed1/) <h3>----</h3> [vjudge.net](https://vjudge.net/user/Ahmed_SA)
+[Codeforces](https://codeforces.com/profile/Ahmed_Sayed-) ----  [LeetCode](https://leetcode.com/u/AhmedSayed1/) ---- [vjudge.net](https://vjudge.net/user/Ahmed_SA)
