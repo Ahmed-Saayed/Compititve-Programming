@@ -1,7 +1,6 @@
 (Mother Library)
 #include <bits/stdc++.h>
 
-
 //=========================================================================
 (Fast Code)
 ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
@@ -90,6 +89,51 @@ original price befor disc
 rotate matrix 90 degree  x[j][n-1-i];
 rotate matrix 180 degree x[n-1-i][n-1-j];
 rotate matrix 270 degree x[n-1-j][i];
+//
+bool Check(double circle_x, double circle_y,double rad, double x, double y){
+    double dis=sqrt(pow(x - circle_x,2)+pow(y - circle_y,2));
+
+    //return dis<rad;  point strictly inside circle 
+    //return dis==rad;  point strictly on circle 
+    //return dis>rad;  point strictly out circle 
+}
+//
+int circle(int x1, int y1, int x2, int y2, int r1, int r2)
+{
+    double d = sqrt((x1 - x2) * (x1 - x2)
+                         + (y1 - y2) * (y1 - y2));
+
+    if (d <= r1 - r2) {
+        cout << "Circle B is inside A";
+    }
+    else if (d <= r2 - r1) {
+        cout << "Circle A is inside B";
+    }
+    else if (d < r1 + r2) {
+        cout << "Circle intersect to each other";
+    }
+    else if (d == r1 + r2) {
+        cout << "Circle touch to each other";
+    }
+    else {
+        cout << "Circle not touch to each other";
+    }
+}
+//
+v is vector<pair<int,int>>  have 4 elements cordinates of the points rectangle
+sort(all(v))
+
+bool check_point_inside_rec(vector<pair<int,int>>v,pair<int,int>p){
+    return p.first>=v[0].first&&p.first<=v.back().first&&p.second>=v[0].second&&p.second<=v[1].second;
+}
+
+bool check_has_edges_parallel_to_the_axes(vector<pair<int,int>>v){
+    return v[0].first==v[1].first&&v[2].first==v[3].first&&v[0].second==v[2].second&&v[1].second==v[3].second;
+}
+
+int calc_area_rec(vector<pair<int,int>>v){
+    return abs(v[1].second-v[0].second)*abs(v[1].first-v[2].first);
+}
 //
 sort(v.begin(), v.end());
     for(int i=0;i<n;i++){
