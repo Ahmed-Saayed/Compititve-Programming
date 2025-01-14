@@ -1,4 +1,4 @@
-<h1>Problem Solving and Block Of Codes</h1>
+<h1>This repository contains source codes for some of problems I solved on online judges and Blocks Of Code</h1>
 <hr>
 <h2>2X ECPC Finalist</h2>
 <h2>Phase 3 Assiut Trainee</h2>
