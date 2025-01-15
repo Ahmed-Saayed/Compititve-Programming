@@ -4,7 +4,7 @@
 <h4>2X ECPC Finalist</h4>
 <h4>Phase 3 Assiut University Sheets Trainee</h4>
 <h4>Problem Setter, Instructor And Mentor At ICPC EELU Community</h4>
-<h4>Specialist Rank At Codeforces</h4>
+<h4>Specialist Rank And 4000+ Problems At Codeforces</h4>
 <h4>Rated Problems 1600 to 2400 At Codeforces</h4>
 <h4>Knight Rank And 100+ HARD Problems At LeetCode</h4>
 <hr>
