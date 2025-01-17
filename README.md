@@ -1,12 +1,13 @@
-<h1>Problem Solving and Block Of Codes</h1>
+<h2>This repository contains source codes for some of problems I solved on online judges and Blocks Of Code</h2>
 <hr>
-<h2>2X ECPC Finalist</h2>
-<h2>Phase 3 Assiut Trainee</h2>
-<h2>Problem Setter At ICPC EELU Community</h2>
-<h2>Specialist At Codeforces</h2>
-<h2>Knight At LeetCode</h2>
-
+<h3>(HIGHLIGHTED ACHIEVEMENTS)</h3>
+<h4>2X ECPC Finalist</h4>
+<h4>Phase 3 Assiut University Sheets Trainee</h4>
+<h4>Problem Setter, Instructor And Mentor At ICPC EELU Community</h4>
+<h4>Specialist Rank And 4000+ Problems At Codeforces</h4>
+<h4>Rated Problems 1600 to 2400 At Codeforces</h4>
+<h4>Knight Rank And 100+ HARD Problems At LeetCode</h4>
 <hr>
-<h3>My Profiles</h3>
+<h3>My Profiles on online judges</h3>
 
 [Codeforces](https://codeforces.com/profile/Ahmed_Sayed-) ----  [LeetCode](https://leetcode.com/u/AhmedSayed1/) ---- [vjudge.net](https://vjudge.net/user/Ahmed_SA)
