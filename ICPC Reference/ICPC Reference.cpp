@@ -1178,3 +1178,21 @@ for(int k=0;k<min(n/2,m/2);k++){
         //
 }
 
+//====================================================
+(for mark every dash from number 0 to 9 in this shape)    
+ ____
+ |  |
+ |--|		// its 8 with dash
+ |  |
+ ____
+vector<vector<int>>dig(10,vector<int>(7));
+dig[0][0]=dig[0][1]=dig[0][2]=dig[0][3]=dig[0][4]=dig[0][5]=1;
+dig[1][1]=dig[1][2]=1;
+dig[2][0]=dig[2][1]=dig[2][3]=dig[2][4]=dig[2][6]=1;
+dig[3][0]=dig[3][1]=dig[3][2]=dig[3][3]=dig[3][6]=1;
+dig[4][1]=dig[4][2]=dig[4][5]=dig[4][6]=1;
+dig[5][0]=dig[5][2]=dig[5][3]=dig[5][5]=dig[5][6]=1;
+dig[6][0]=dig[6][2]=dig[6][3]=dig[6][4]=dig[6][5]=dig[6][6]=1;
+dig[7][0]=dig[7][1]=dig[7][2]=1;
+dig[8][0]=dig[8][1]=dig[8][2]=dig[8][3]=dig[8][4]=dig[8][5]=dig[8][6]=1;
+dig[9][0]=dig[9][1]=dig[9][2]=dig[9][3]=dig[9][5]=dig[9][6]=1;
