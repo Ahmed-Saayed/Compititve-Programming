@@ -1,5 +1,5 @@
 class Solution {
-public:
+public: 
     string t;
     int close[(int)1e5],dp[(int)1e5][2];
     int rec(int i = 1, int open = 0){
