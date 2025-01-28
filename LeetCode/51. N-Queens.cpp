@@ -1,7 +1,7 @@
 class Solution {
 public:
 set<vector<vector<char>>>s;
-void rec(int i,vector<vector<char>>grid){
+void rec(int i,vector<vector<char>>grid) {
     if(i==grid.size()){
         s.insert(grid);
         return;
