@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int maxProfit(vector<int>& x){
+    int maxProfit(vector<int>& x) {
         int n = x.size(), suf[int(1e5) + 5]{},mx = 0;
         for(int i = n - 1 ;~i; i--){
             mx = max(mx, x[i]),
