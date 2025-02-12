@@ -683,6 +683,59 @@ struct DSU{
 };
 
 //=========================================================================
+(DSU on Trees (Sack))
+const int N=5e5+5;
+vector<int>adj[N];
+int big[N],sz[N],fre[N][26],dep[N],ans[N];
+string s;
+
+void pre(int node,int par){
+    sz[node]=1;
+    for(auto i:adj[node]){
+        if(i==par)continue;
+
+        pre(i,node);
+
+        sz[node]+=sz[i];
+
+        if(!big[node]||sz[i]>sz[big[node]])
+            big[node]=i;
+    }
+}
+
+void up(int node,int add){
+   // change here
+}
+
+void collect(int node,int par,int add){
+    up(node,add);
+
+    for(auto i:adj[node])
+        if(i!=par)collect(i,node,add);
+}
+
+vector<pair<int,int>>v[N];
+void dfs(int node,int par,int ok){
+    for(auto i:adj[node])
+        if(i!=par&&big[node]!=i)
+            dfs(i,node,0);
+
+    if(big[node])
+        dfs(big[node],node,1);
+
+    up(node,1);
+
+    for(auto i:adj[node])
+        if(i!=par&&i!=big[node])
+            collect(i,node,1);
+
+    // answer queries here
+
+    if(!ok)
+        collect(node,par,-1);
+}
+
+//=========================================================================
 (SCC)
 void SCC(ll node){
     dn[node] = low[node] = id++;
