@@ -2,7 +2,7 @@
 <hr>
 <h3>(HIGHLIGHTED ACHIEVEMENTS)</h3>
 <ul>
-<li><h4>Solved many problems using Advanced Data Structures And Algorithms on many online judges likes(<a href="https://codeforces.com/profile/Ahmed_Sayed-" target="_blank">CodeForces</a>,  <a href="https://leetcode.com/u/AhmedSayed1/" target="_blank">LeetCode</a>,  <a href="https://atcoder.jp/users/AhmedSayed" target="_blank">AtCoder</a>
+<li><h4>Solved many problems using Advanced Data Structures And Algorithms on many profiles online judges likes(<a href="https://codeforces.com/profile/Ahmed_Sayed-" target="_blank">CodeForces</a>,  <a href="https://leetcode.com/u/AhmedSayed1/" target="_blank">LeetCode</a>,  <a href="https://atcoder.jp/users/AhmedSayed" target="_blank">AtCoder</a>
 ,  <a href="https://www.spoj.com/" target="_blank">Spoj</a>
 ,  <a href="https://www.codechef.com/users/ahmed_sayed1" target="_blank">Codechef</a>
 ,  <a href="https://vjudge.net/user/Ahmed_SA" target="_blank">Vjudge</a>
