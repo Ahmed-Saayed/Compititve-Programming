@@ -683,6 +683,71 @@ struct DSU{
 };
 
 //=========================================================================
+(HLD)
+const int N=1e4+5;
+vector<pair<int,int>>adj[N];
+vector<int>x;
+ 
+struct HLD{
+    vector<int>heavy,head,par,id,dep,sz,val;
+    int nxt;
+ 
+    HLD(int n):heavy(n+1),head(n+1),id(n+1),par(n+1),dep(n+1),val(n+1),sz(n+1,1){
+        Dfs();
+        nxt=1;
+        head[1]=1;
+        Flatten();
+    }
+ 
+    void Dfs(int node=1){
+        for(auto [a,b]:adj[node]){
+            if(a==par[node])continue;
+ 
+            par[a]=node;
+            dep[a]=dep[node]+1;
+            val[a]=b;
+            Dfs(a);
+            sz[node]+=sz[a];
+ 
+            if(!heavy[node]||sz[a]>sz[heavy[node]])heavy[node]=a;
+        }
+    }
+ 
+    void Flatten(int node=1){
+        id[node]=nxt++;
+ 
+        if(heavy[node])
+            head[heavy[node]]=head[node],
+            Flatten(heavy[node]);
+ 
+        for(auto [a,b]:adj[node]){
+            if(a==par[node]||a==heavy[node])continue;
+ 
+            head[a]=a;
+            Flatten(a);
+        }
+    }
+ 
+    vector<pair<int,int>>Path(int u,int v){
+        vector<pair<int,int>>ret;
+ 
+        while(1){
+            if(head[u]==head[v]){
+                if(dep[u]>dep[v])swap(u,v);
+ 
+                ret.push_back({id[u]+1,id[v]});
+                return ret;
+            }
+ 
+            if(dep[head[u]]>dep[head[v]])swap(u,v);
+            ret.push_back({id[head[v]],id[v]});
+            v=par[head[v]];
+        }
+    }
+ 
+};
+
+//=========================================================================
 (DSU on Trees (Sack))
 const int N=5e5+5;
 vector<int>adj[N];
