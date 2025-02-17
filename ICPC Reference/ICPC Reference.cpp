@@ -748,6 +748,74 @@ struct HLD{
 };
 
 //=========================================================================
+(Centroid_Decomposition)
+
+const int N=2e5+5;
+vector<int>adj[N];
+struct Centroid_Decomposition{
+
+    vector<int>Sz,Is_Removed;
+    vector<vector<pair<int, int>>> Centroids;
+
+    Centroid_Decomposition(int n){
+        Sz=Is_Removed=vector<int>(n+1);
+        Centroids=vector<vector<pair<int,int>>>(n+1);
+        Build_Centroid();
+    }
+
+    int Get_SubTreeSz(int node, int par = -1) {
+        Sz[node] = 1;
+        for (int i : adj[node]) {
+            if(i == par || Is_Removed[i])continue;
+
+            Sz[node] += Get_SubTreeSz(i, node);
+        }
+
+        return Sz[node];
+    }
+
+    int Get_Centroid(int node, int TreeSize, int par = -1) {
+        for (int i : adj[node]) {
+            if(i == par || Is_Removed[i])continue;
+
+            if(Sz[i] * 2 > TreeSize)
+                return Get_Centroid(i, TreeSize, node);
+        }
+
+        return node;
+    }
+
+    void Get_Dis(int node, int centroid, int par = -1, int dis = 1) {
+        for (int i : adj[node]) {
+            if(i == par || Is_Removed[i])continue;
+
+            dis++,
+            Get_Dis(i, centroid, node, dis),
+            dis--;
+        }
+
+        Centroids[node].push_back({centroid, dis});
+    }
+
+    void Build_Centroid(int node = 1) {
+        int centroid = Get_Centroid(node, Get_SubTreeSz(node));
+
+        for (int i : adj[centroid]) {
+            if(Is_Removed[i])continue;
+
+            Get_Dis(i, centroid, centroid);
+        }
+
+        Is_Removed[centroid] = 1;
+        for (int i : adj[centroid]) {
+            if(Is_Removed[i])continue;
+
+            Build_Centroid(i);
+        }
+    }
+};
+
+//=========================================================================
 (DSU on Trees (Sack))
 const int N=5e5+5;
 vector<int>adj[N];
