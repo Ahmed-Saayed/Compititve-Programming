@@ -1,49 +1,42 @@
-#include <bits/stdc++.h>
-#define ll long long
-#define tt int t;cin>>t;while(t--){
-#define all(v) (v).begin(),(v).end()
-#define nn cout<<"\n"
-using namespace std;
+const int N=1e5+5;
+vector<int>adj[N];					
+int dijkstra(vector<vector<int>>& x,int source, int target){		//815. Bus Routes
+    if(source == target)return 0;
 
-void Ahmed_Sayed(){
-ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-}
+    priority_queue<pair<int,int>,vector<pair<int,int>>,greater<>>pq;
+    for(auto i:adj[source])pq.push({1,i});
 
-ll n,m;
-vector<ll>par;
-vector<pair<ll,ll>>adj[(ll)1e5+1];
-void dijkstra(){
-    priority_queue<array<ll,2>,vector<array<ll,2>>,greater<>>pq;
-    vector<ll>dis(n+1,1e18);
-    pq.push({0,1});
-
+    vector<int>dis(x.size(),1e9);
     while(pq.size()){
-        auto [cost,node]=pq.top();pq.pop();
-        if(cost>dis[node])continue;
-        dis[node]=cost;
+        auto[cost,line]=pq.top();pq.pop();
 
-        for(auto[a,b]:adj[node]){
-            if(cost+b<dis[a])dis[a]=cost+b,par[a]=node,pq.push({cost+b,a});
+        if(cost>dis[line])continue;
+        dis[line]=cost;
+
+        for(auto i:x[line]){
+            if(i==target)return cost;
+
+            for(auto j:adj[i])
+                if(cost+1<dis[j]){
+                    dis[j]=cost+1,pq.push({cost+1,j});
+            }
         }
     }
+
+    return -1;
 }
 
-int main()
-{
-Ahmed_Sayed();
-cin>>n>>m;
-par=vector<ll>(n+1);
-
-while(m--){
-    ll a,b,c;cin>>a>>b>>c,adj[a].push_back({b,c}),adj[b].push_back({a,c});
-}
-dijkstra();
-
-vector<ll>ans;
-ll o=n;
-while(o)ans.push_back(o),o=par[o];
-reverse(all(ans));
-
-if(!par[n])cout<<-1;
-else for(auto i:ans)cout<<i<<' ';
-}
+class Solution {
+public:
+    int numBusesToDestination(vector<vector<int>>& routes, int source, int target) {
+        vector<int>v;
+        for(int i=0;i<routes.size();i++)
+            for(auto j:routes[i])v.push_back(j),adj[j].push_back(i);
+            
+        int ans=dijkstra(routes,source,target);
+        
+        for(auto i:v)adj[i].clear();
+       
+        return ans;
+    }
+};
