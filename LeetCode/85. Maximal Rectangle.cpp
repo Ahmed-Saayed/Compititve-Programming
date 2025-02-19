@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int maximalRectangle(vector<vector<char>>& x)  {
+    int maximalRectangle(vector<vector<char>>& x)   {
         int n = x.size(), m = x[0].size();
         int suf[n][m];
 
