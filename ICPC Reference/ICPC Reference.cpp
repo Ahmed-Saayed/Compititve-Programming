@@ -19,27 +19,47 @@ ll fp(ll x, ll k,ll mod){
 
 //=========================================================================
 (Npr Ncr Factorial Inv)
-const ll N=2e5+5;
-ll fact[N+1],inv[N+1];
-void pre(){
-    fact[0]=inv[0]=1;
-    for(ll i=1;i<=N;i++){
-        fact[i] = fact[i-1] * i % mod;
-        inv[i]=fp(fact[i],mod-2,mod);
+struct Combinatorics{
+    vector<ll>fact,inv;
+    ll mod;
+
+    Combinatorics(){}
+
+    Combinatorics(int n,int mod){
+        fact=inv=vector<ll>(n+1);
+        fact[0]=inv[0]=1,
+        this->mod=mod;
+
+        for(ll i=1;i<=n;i++){
+            fact[i] = fact[i-1] * i % mod;
+            inv[i]=fp(fact[i],mod-2);
+        }
     }
-}
 
-ll fix(ll x){return (x%mod+mod)%mod;}
+    ll fp(ll x, ll k){
+        ll ret = 1;
+        x%=mod;
+        while (k){
+            if (k & 1) ret = (ret%mod*x) % mod;
+            k >>= 1; x = (x*x) % mod;
+        }
 
-ll ncr(ll n,ll r){
-      if(r>n)return 0;
-      return (fact[n]*inv[r])%mod*inv[n-r]%mod;
-}
+        return ret%mod;
+    }
 
-ll npr(ll n,ll r){
-      if(r>n)return 0;
-      return fact[n]*inv[n-r]%mod;
-}
+
+    ll fix(ll x){return (x%mod+mod)%mod;}
+
+    ll ncr(ll n,ll r){
+          if(r>n)return 0;
+          return (fact[n]*inv[r])%mod*inv[n-r]%mod;
+    }
+
+    ll npr(ll n,ll r){
+          if(r>n)return 0;
+          return fact[n]*inv[n-r]%mod;
+    }
+};
 
 //=========================================================================
 (String mod)
@@ -134,26 +154,18 @@ bool check_has_edges_parallel_to_the_axes(vector<pair<int,int>>v){
 int calc_area_rec(vector<pair<int,int>>v){
     return abs(v[1].second-v[0].second)*abs(v[1].first-v[2].first);
 }
-//
+
+// there are NCr ways to make this choice. Find the sum of f(S)
+// f(S) over all those ways where f(S) = set of integers f(X)=max(X)−min(X)..
+
 sort(v.begin(), v.end());
     for(int i=0;i<n;i++){
         ans=fix(ans-ncr(n-i-1,k-1)*v[i]);
         ans=fix(ans+ncr(i,k-1)*v[i]);
     }
-//=========================================================================
-string rep(string s,string a,string b){
-auto it=s.find(a);
-while(it!=string::npos&&s.size()<=10){
-    s.replace(it,a.size(),b);
-    it=s.find(a,it+b.size());
-}
-return s;
-}
-
-string::npos
 
 //=========================================================================
-(New Kadanes_Algorithm)
+(Kadanes_Algorithm)
 pair<ll,ll>Kadanes_Algorithm(vector<ll>arr) {
     ll mx = arr[0],mn=arr[0];
     ll mxend = arr[0],mnend=arr[0];
@@ -656,6 +668,7 @@ for(int i=0;i<q;i++){
 }
 
 //=========================================================================
+(DSU)
 struct DSU{
     vector<ll>par,sz;
     ll sm,components;
