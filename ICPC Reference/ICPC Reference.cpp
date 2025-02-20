@@ -18,7 +18,7 @@ ll fp(ll x, ll k,ll mod){
 }
 
 //=========================================================================
-(Npr Ncr Factorial Inv)
+(Npr, Ncr ,Factorial ,mod Inv, Fast power)
 struct Combinatorics{
     vector<ll>fact,inv;
     ll mod;
