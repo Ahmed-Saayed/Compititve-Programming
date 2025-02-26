@@ -181,14 +181,6 @@ pair<ll,ll>Kadanes_Algorithm(vector<ll>arr) {
 }
 
 //=========================================================================
-bool overflow(ll a , ll b){
-    ll c = a*b;
-    if(c%a!=0) return 1;
-    if(c / a != b) return 1;
-    return 0;
-}
-
-//=========================================================================
 (ordered multiset)           		complex 4*log
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
