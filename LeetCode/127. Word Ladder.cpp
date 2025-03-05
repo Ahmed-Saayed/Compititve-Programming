@@ -1,4 +1,4 @@
-bool ok(string s, string t){
+bool ok(string s, string t) {
         int ret=0;
         for(int i=0;i<s.size();i++)
             if(s[i]!=t[i])ret++;
