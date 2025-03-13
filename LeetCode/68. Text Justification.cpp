@@ -1,6 +1,6 @@
 class Solution {
 public:
-    string conv(vector<string>o){
+    string conv(vector<string>o) {
         string ret;
         for(auto i:o)ret+=i;
         return ret;
