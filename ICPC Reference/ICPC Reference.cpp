@@ -155,6 +155,18 @@ int calc_area_rec(vector<pair<int,int>>v){
     return abs(v[1].second-v[0].second)*abs(v[1].first-v[2].first);
 }
 
+//
+
+//law of this 2^l + 2^(l+1) + 2^(l+2) 2^(r)
+2^(r+1) − 2^l
+ 
+//
+
+summation of all ncr (n,r) and r is all odd number less than or equal to n
+2^(n-1);
+
+//
+
 // there are NCr ways to make this choice. Find the sum of f(S)
 // f(S) over all those ways where f(S) = set of integers f(X)=max(X)−min(X)..
 
