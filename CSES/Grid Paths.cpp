@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 #define ll long long
-#define tt int tc;cin>>tc;while(tc--){
+#define tt int tc;cin>>tc;while(tc--){ 
 #define all(v) (v).begin(),(v).end()
 #define nn cout<<"\n"
 using namespace std;
