@@ -1,40 +1,46 @@
-#define ll long long
+using ll = System.Int64;
+public class Solution
+{
+    string s="", t="", o="";
+    ll lmt;
+    ll[,,] dp = new ll[17, 2, 2];
+    ll rec(ll i = 0, ll f1 = 0, ll f2 = 0)
+    {
+        if (i == s.Length)
+            return 1;
 
-string s,t,o;
-ll lmt,dp[17][2][2];
-ll rec(int i=0,int f1=0,int f2=0){
-    if(i==s.size())
-       return 1;
+        ref ll ret = ref dp[i, f1, f2];
+        if (ret != -1)
+            return ret;
 
-    ll&ret=dp[i][f1][f2];
-    if(~ret)return ret;
+        ret = 0;
+        int mn = (f1 == 0 ? s[((int)i)] - '0' : 0),
+            mx = (f2 == 0 ? t[((int)i)] - '0' : 9);
 
-    ret=0;
-    int mn=(!f1?s[i]-'0':0),
-        mx=(!f2?t[i]-'0':9);
-
-    for(int j=mn;j<=min(lmt,(ll)mx);j++){
-        if(i>=s.size()-o.size()){
-            if(j+'0'==o[i-(s.size()-o.size())])
-                ret+=rec(i+1,!(!f1&&j==mn),!(!f2&&j==mx));
+        for (int j = mn; j <= Math.Min(lmt, mx); j++)
+        {
+            if (i >= s.Length - o.Length)
+            {
+                if (j == o[((int)i) - (s.Length - o.Length)] - '0')
+                    ret += rec(i + 1, (f1 == 0 && j == mn) ? 0 : 1, (f2 == 0 && j == mx) ? 0 : 1);
+            }
+            else
+                ret += rec(i + 1, (f1 == 0 && j == mn) ? 0 : 1, (f2 == 0 && j == mx) ? 0 : 1);
         }
-        else
-            ret+=rec(i+1,!(!f1&&j==mn),!(!f2&&j==mx));
+
+        return ret;
     }
-    return ret;
-}
+    public long NumberOfPowerfulInt(long start, long finish, int limit, string ss)
+    {
+        s = start.ToString();
+        t = finish.ToString();
+        o = ss;
+        lmt = limit;
 
-class Solution {
-public:
-    long long numberOfPowerfulInt(long long start, long long finish, int limit, string ss) {
-        lmt=limit,
-        s=to_string(start),
-        t=to_string(finish),
-        o=ss;
-        memset(dp,-1,sizeof dp);
+        s = new string('0', t.Length - s.Length) + s;
 
-        s=string(t.size()-s.size(),'0')+s;
+        System.Runtime.InteropServices.MemoryMarshal.CreateSpan(ref dp[0, 0, 0], dp.Length).Fill(-1);
 
         return rec();
     }
-};
+}
