@@ -1,5 +1,5 @@
 select
-    distinct(author_id) as id
+    distinct(author_id) as  id
 from 
     views
 where
