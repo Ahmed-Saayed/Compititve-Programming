@@ -8,8 +8,8 @@
 ,  <a href="https://vjudge.net/user/Ahmed_SA" target="_blank">Vjudge</a>
 , ..etc)</h4></li>
 
-<li><h4>💥ACPC Finalist <a href="https://acpc.global/" target="_blank">(Africa and Arab Collegiate Programming Championship)</h4></li>
-<li><h4>💥3X ECPC Finalist <a href="https://web.facebook.com/EgyptCPC/?_rdc=1&_rdr#" target="_blank">(Egyptian Collegiate Programming Contest)</h4></li>
+<li><h4>💥ACPC Finalist (2025) <a href="https://acpc.global/" target="_blank">(Africa and Arab Collegiate Programming Championship)</h4></li>
+<li><h4>💥3X ECPC Finalist (2023, 2024, 2025) <a href="https://web.facebook.com/EgyptCPC/?_rdc=1&_rdr#" target="_blank">(Egyptian Collegiate Programming Contest)</h4></li>
 <li><h4>💥Problem Setter, Instructor And Mentor At <a href="https://web.facebook.com/ICPCEELU/?_rdc=1&_rdr#" target="_blank">(ICPC EELU Community)</h4></li>  </h4></li>
 <li><h4>💥Phase 3 Assiut University Trainee <a href="https://vjudge.net/group/assiut-seniors" target="_blank">(ICPC Assiut Seniors Sheet)</a></h4></li>
 <li><h4>💥Specialist Rank (Max Rate 1562) And 4000+ Problems Rated Until 2400 At  <a href="https://codeforces.com/profile/Ahmed_Sayed-" target="_blank">(Codeforces Profile)</a></h4></li>
