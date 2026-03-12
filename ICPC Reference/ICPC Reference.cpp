@@ -1399,3 +1399,26 @@ dig[6][0]=dig[6][2]=dig[6][3]=dig[6][4]=dig[6][5]=dig[6][6]=1;
 dig[7][0]=dig[7][1]=dig[7][2]=1;
 dig[8][0]=dig[8][1]=dig[8][2]=dig[8][3]=dig[8][4]=dig[8][5]=dig[8][6]=1;
 dig[9][0]=dig[9][1]=dig[9][2]=dig[9][3]=dig[9][5]=dig[9][6]=1;
+
+//==========================================================
+bool hasCycle(int n, vector<vector<int>>& adj){
+    vector<int> vis(n);
+    for(int i=0;i<n;i++){
+        if(vis[i]) continue;
+        queue<pair<int,int>> q;
+        q.push({i,-1});
+        vis[i]=1;
+
+        while(!q.empty()){
+            auto [u,p]=q.front(); q.pop();
+            for(int v:adj[u]){
+                if(!vis[v]){
+                    vis[v]=1;
+                    q.push({v,u});
+                }
+                else if(v!=p) return true;
+            }
+        }
+    }
+    return false;
+}
